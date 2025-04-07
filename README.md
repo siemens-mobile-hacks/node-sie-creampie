@@ -5,7 +5,7 @@ ARM Little Endian only.
 
 # USAGE
 ```ts
-import { loadeELF } from "creampie";
+import { loadeELF } from "@sie-js/creampie";
 import fs from "node:fs";
 
 console.log(loadELF(fs.readFileSync("app.elf")));
