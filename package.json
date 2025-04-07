@@ -1,0 +1,31 @@
+{
+	"name": "@sie-js/creampie",
+	"version": "1.0.0",
+	"type": "module",
+	"main": "dist/src/index.js",
+	"types": "dist/src/index.d.ts",
+	"scripts": {
+		"test": "vitest run",
+		"test:watch": "vitest",
+		"pub": "npm version patch && npm publish --access public",
+		"build": "tsc",
+		"watch": "tsc -w"
+	},
+	"author": "",
+	"license": "MIT",
+	"description": "CREAMPIE — Code RElocation And Memory PIE extractor.",
+	"repository": {
+		"url": "git+https://github.com/siemens-mobile-hacks/node-sie-creampie.git"
+	},
+	"files": [
+		"./dist/src/*",
+		"./build/*.wasm",
+		"./build/*.js"
+	],
+	"devDependencies": {
+		"@types/node": "^22.13.8",
+		"tsx": "^4.19.3",
+		"typescript": "^5.8.2"
+	},
+	"packageManager": "pnpm@10.5.2+sha512.da9dc28cd3ff40d0592188235ab25d3202add8a207afbedc682220e4a0029ffbff4562102b9e6e46b4e3f9e8bd53e6d05de48544b0c57d4b0179e22c76d1199b"
+}
