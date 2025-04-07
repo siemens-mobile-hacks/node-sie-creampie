@@ -1,4 +1,4 @@
-import Module from "../build/creampie.js";
+import Module from "#build/creampie.js";
 
 const Creampie = await Module();
 

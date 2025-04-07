@@ -22,6 +22,9 @@
 		"./build/*.wasm",
 		"./build/*.js"
 	],
+	"imports": {
+		"#build/*.js": "./build/*.js"
+	},
 	"devDependencies": {
 		"@types/node": "^22.13.8",
 		"tsx": "^4.19.3",

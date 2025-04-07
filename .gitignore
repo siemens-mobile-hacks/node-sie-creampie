@@ -2,6 +2,7 @@ build/
 .idea
 *.bin
 *.data
+test.ts
 
 # Logs
 logs
