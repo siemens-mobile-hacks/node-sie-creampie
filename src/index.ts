@@ -3,21 +3,21 @@ import Module from "../build/creampie.js";
 const Creampie = await Module();
 
 export type LoadedELF = {
-	memory: Buffer;
+	image: Buffer;
 	base: number;
 	virtualAddr: number;
 	ramSize: number;
 	entry: number;
 };
 
-export function loadELF(base: number, file: Buffer): LoadedELF | undefined {
+export function loadELF(base: number, file: Buffer): LoadedELF {
 	const ptr = Creampie._malloc(file.length);
 	Creampie.HEAPU8.set(file, ptr);
 	const elf = Creampie.loadELF(base, ptr, file.length);
 	Creampie._free(ptr);
 
 	if (!elf)
-		return undefined;
+		throw new Error("Invalid ELF");
 
 	const memory = Buffer.alloc(elf.memory.size());
 	for (let i = 0; i < memory.length; i++)
@@ -29,7 +29,7 @@ export function loadELF(base: number, file: Buffer): LoadedELF | undefined {
 		virtualAddr: elf.virtualAddr,
 		ramSize: elf.ramSize,
 		entry: elf.entry,
-		memory
+		image: memory
 	};
 
 	return info;
