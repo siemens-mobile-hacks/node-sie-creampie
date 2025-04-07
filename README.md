@@ -5,8 +5,13 @@ ARM Little Endian only.
 
 # USAGE
 ```ts
-import { loadeELF } from "@sie-js/creampie";
+import { loadELF } from "@sie-js/creampie";
 import fs from "node:fs";
 
-console.log(loadELF(fs.readFileSync("app.elf")));
+const elf = loadELF(0xA0000000, fs.readFileSync("app.elf"));
+console.log("Base:", "0x" + elf.base.toString(16));
+console.log("Entry point:", "0x" + elf.entry.toString(16));
+console.log("Ram size:", "0x" + elf.ramSize.toString(16));
+console.log("Image size:", "0x" + elf.image.length.toString(16));
+console.log("Image data:", elf.image);
 ```
